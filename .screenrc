@@ -1,0 +1,6 @@
+mousetrack on
+
+term xterm-256color
+
+# hide text editors after closing
+altscreen on

@@ -1,0 +1,22 @@
+# system mode
+
+set $mode_system "(d) reload sway, (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) poweroff"
+
+bindsym $mod+Escape mode $mode_system
+
+mode $mode_system 
+{
+    bindsym d reload
+    # lock the screen
+#   bindsym l exec --no-startup-id i3lock --color 000000, mode "default"
+    bindsym e exit
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+#   bindsym h exec --no-startup-id i3lock --color 000000, exec --no-startup-id systemctl hibernate, mode $mode_default
+    bindsym r exec --no-startup-id systemctl reboot
+    bindsym p exec --no-startup-id systemctl poweroff
+
+    # return to default mode
+    bindsym Return      mode "default"
+    bindsym Escape      mode "default"
+    bindsym $mod+Escape mode "default"
+}

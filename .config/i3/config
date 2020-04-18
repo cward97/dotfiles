@@ -1,0 +1,219 @@
+# i3 config file (v4)
+
+######################### GENERAL SETTINGS #########################
+
+# set mod key
+set $mod Mod4
+
+# set font
+font pango:Roboto 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+
+# start rofi (a program launcher)
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+set     $mode_default   "default"
+set     $mode_resize    "resize"
+set     $mode_system    "(l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) poweroff"
+
+bindsym     $mod+r          mode $mode_resize
+bindsym     $mod+Escape     mode $mode_system
+
+######################### FUNCTION KEYS #########################
+
+# reload i3 configuration file
+bindsym     $mod+F10    reload
+
+# restart i3
+bindsym     $mod+F11    restart
+
+# exit i3
+bindsym     $mod+F12    exit
+
+######################### CONTAINERS #########################
+
+# set movement keys
+set     $left       h
+set     $down       j
+set     $up         k
+set     $right      l
+
+# change focus
+bindsym     $mod+$left      focus left
+bindsym     $mod+$down      focus down
+bindsym     $mod+$up        focus up
+bindsym     $mod+$right     focus right
+
+bindsym     $mod+Left       focus left
+bindsym     $mod+Down       focus down
+bindsym     $mod+Up         focus up
+bindsym     $mod+Right      focus right
+
+# move windows
+bindsym     $mod+shift+$left        move left
+bindsym     $mod+shift+$down        move down
+bindsym     $mod+shift+$up          move up
+bindsym     $mod+shift+$right       move right
+
+bindsym     $mod+shift+Left         move left
+bindsym     $mod+shift+Down         move down
+bindsym     $mod+shift+Up           move up
+bindsym     $mod+shift+Right        move right
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+z focus child
+
+# kill focused window
+bindsym $mod+q kill
+
+######################### WORKSPACES #########################
+
+# define workspace names
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# cycle through open workspaces
+bindsym $mod+minus  workspace prev
+bindsym $mod+plus   workspace next
+
+# move focused container to workspace
+bindsym $mod+shift+1 move container to workspace $ws1
+bindsym $mod+shift+2 move container to workspace $ws2
+bindsym $mod+shift+3 move container to workspace $ws3
+bindsym $mod+shift+4 move container to workspace $ws4
+bindsym $mod+shift+5 move container to workspace $ws5
+bindsym $mod+shift+6 move container to workspace $ws6
+bindsym $mod+shift+7 move container to workspace $ws7
+bindsym $mod+shift+8 move container to workspace $ws8
+bindsym $mod+shift+9 move container to workspace $ws9
+bindsym $mod+shift+0 move container to workspace $ws10
+
+# move to next open workspace
+bindsym $mod+shift+minus    move container to workspace prev
+bindsym $mod+shift+plus     move container to workspace next
+
+######################### SCRATCHPAD #########################
+
+# show the first scratchpad window
+#bindsym $mod+minus scratchpad show
+
+# make the currently focused window a scratchpad
+#bindsym $mod+shift+minus move scratchpad
+
+######################### FLOATING #########################
+
+# change focus between tiling / floating windows
+#bindsym $mod+plus focus mode_toggle
+
+# toggle tiling / floating
+#bindsym $mod+shift+plus floating toggle
+
+######################### STATUS BAR #########################
+
+bar
+{
+    status_command i3status
+    font pango:Roboto Mono Medium Nerd Font Complete 10
+}
+
+######################### RESIZE MODE #########################
+
+mode $mode_resize 
+{
+    # change window size
+    bindsym     $left   resize  shrink  width   10 px or 10 ppt
+    bindsym     $down   resize  shrink  height  10 px or 10 ppt
+    bindsym     $up     resize  grow    height  10 px or 10 ppt
+    bindsym     $right  resize  grow    width   10 px or 10 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym     Left    resize  shrink  width   10 px or 10 ppt
+    bindsym     Down    resize  shrink  height  10 px or 10 ppt
+    bindsym     Up      resize  grow    height  10 px or 10 ppt
+    bindsym     Right   resize  grow    width   10 px or 10 ppt
+
+    # return to default mode
+    bindsym     Return  mode $mode_default
+    bindsym     Escape  mode $mode_default
+    bindsym     $mod+r  mode $mode_default
+}
+
+######################### SYSTEM MODE #########################
+
+mode $mode_system 
+{
+    # lock the screen
+    bindsym     l   exec --no-startup-id i3lock --color 000000, mode $mode_default
+    bindsym     e   exit
+    bindsym     s   exec --no-startup-id systemctl suspend, mode $mode_default
+#   bindsym     h   exec --no-startup-id i3lock --color 000000, exec --no-startup-id systemctl hibernate, mode $mode_default
+    bindsym     r   exec --no-startup-id systemctl reboot
+    bindsym     p   exec --no-startup-id systemctl poweroff
+
+    # return to default mode
+    bindsym     Return          mode $mode_default
+    bindsym     Escape          mode $mode_default
+    bindsym     $mod+Escape     mode $mode_default
+}
+
+######################### DEFAULT PROGRAMS #########################
+
+set $browser        firefox
+set $file_manager   alacritty -e ranger
+set $terminal       alacritty
+
+######################### STARTUP #########################
+
+#exec --no-startup-id i3-msg 'workspace $ws2; exec $file_manager; workspace $ws1'
+#exec --no-startup-id i3-msg 'workspace $ws3; exec $browser; workspace $ws1' 
+
+######################### PROGRAM SHORTCUTS #########################
+
+bindsym     $mod+Return             exec $terminal
+bindsym     $mod+backslash          exec urxvt -e ranger
+bindsym     $mod+shift+backslash    exec urxvt -e sudo ranger
+bindsym     $mod+shift+Return       exec urxvt -e su
+bindsym     $mod+numbersign         exec firefox
+bindsym     $mod+bracketright       exec urxvt -e nvim
+bindsym     $mod+shift+bracketright exec urxvt -e sudo nvim
+

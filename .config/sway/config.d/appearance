@@ -1,0 +1,14 @@
+# hide window borders
+default_border  pixel
+
+# set font
+font pango:Roboto 11
+
+# set background
+output "*" bg ~/Pictures/wallpapers/strings.jpg fill
+
+# status bar
+bar
+{
+    swaybar_command waybar
+}

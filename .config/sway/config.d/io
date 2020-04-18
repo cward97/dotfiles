@@ -1,0 +1,38 @@
+
+######################### INPUT #########################
+
+# laptop keyboard settings
+input 1:1:AT_Translated_Set_2_keyboard 
+{
+    xkb_layout gb
+    xkb_options ctrl:nocaps
+}
+
+# touchpad settings
+input 2:7:SynPS/2_Synaptics_TouchPad 
+{
+    tap enabled
+    natural_scroll enabled
+}
+
+# special keys
+# audio keys (source: https://wiki.archlinux.org/index.php/PulseAudio#Keyboard_volume_control)
+set $sink 0
+
+bindsym XF86AudioMute        exec pactl set-sink-mute $sink toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume $sink -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $sink +5%
+
+# brightness keys
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp   exec brightnessctl set +5%
+
+#OUTPUT
+
+output eDP-1    pos 0 0
+output HMDI-A-2 pos 1920 0
+
+set $laptop eDP-1
+bindswitch --reload lid:on output $laptop disable
+bindswitch --reload lid:off output $laptop enable
+ 

@@ -1,0 +1,8 @@
+# program launcher
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# default applications
+set $terminal alacritty
+
+# application shortcuts
+bindsym $mod+Return exec $terminal

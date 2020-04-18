@@ -1,0 +1,18 @@
+# set mod key
+set $mod Mod4
+
+# set movement keys
+set $left  h
+set $down  j
+set $up    k
+set $right l
+
+# include additional config files
+include ./config.d/appearance
+include ./config.d/applications
+include ./config.d/containers
+include ./config.d/io
+include ./config.d/workspaces
+
+include ./config.d/modes/resize
+include ./config.d/modes/system

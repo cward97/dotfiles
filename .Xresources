@@ -1,0 +1,10 @@
+! ---------- COLOUR SCHEME ----------
+#include ".Xresources.d/solarized"
+
+! ---------- URxvt ----------
+URxvt.font:         xft:SauceCodePro Nerd Font Mono:semibold:size=11
+URxvt.scrollBar:    false
+
+! ---------- XTerm ----------
+XTerm.termName:         xterm-256color
+XTerm.vt100.faceName:   SauceCodePro Nerd Font Mono:semibold:size=11
