@@ -1,13 +1,6 @@
 # .bash_profile
 
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
-
-# User specific environment and startup programs
-
-PATH=$PATH:~/.local/bin:~/bin
-
-export PATH
+# jump into zsh
+export SHELL=/bin/zsh
+exec /bin/zsh -l
 

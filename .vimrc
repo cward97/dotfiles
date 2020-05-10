@@ -1,4 +1,17 @@
-" vim-plug
+" My .vimrc file. It contains settings for vim and nvim.
+
+
+" -------------------------------------------------
+" -------------------- PLUGINS --------------------
+" -------------------------------------------------
+
+" install vim-plug if not already there
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -18,7 +31,10 @@ Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
-" Base
+" ----------------------------------------------
+" -------------------- BASE --------------------
+" ----------------------------------------------
+
 " set where to save viminfo file
 set viminfo+=n~/.vim/viminfo
 
@@ -34,9 +50,11 @@ filetype plugin indent on
 
 " text wrapping
 let &showbreak='>>'         " appears at start of wrapped lines
-set breakindent             " make indentation of wrapped lines match line above
-set breakindentopt+=shift:2 " indent wrapped text relative to first line
-set breakindentopt+=sbr     " display showbreak symbol before applying breakindent
+if has('breakindent') && has('breakindentopt')
+  set breakindent             " make indentation of wrapped lines match line above
+  set breakindentopt+=shift:2 " indent wrapped text relative to first line
+  set breakindentopt+=sbr     " display showbreak symbol before applying breakindent
+endif
 set cpoptions+=n            " make showbreak symbol appear in same column as line numbers
 
 " enable folds
