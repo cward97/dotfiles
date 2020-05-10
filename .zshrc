@@ -1,4 +1,5 @@
 source ~/.zshrc.d/zle
+source ~/.zshrc.d/keybindings.zsh
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
@@ -44,14 +45,23 @@ zle -N down-line-or-beginning-search
 
 #################### ALIASES ####################
 
-alias ..="cd .."
 alias vim=nvim
 
+# fancy cd with ls
+chpwd() ls
+
+# listing files
 alias ls="ls -v --color --group-directories-first"
+alias lsa="ls -a"
+alias lsl="ls -l"
+alias lsal="ls -al"
 
 bindkey "^P" history-beginning-search-backward
 bindkey "^N" history-beginning-search-forward
 
-# fix tlmgr (https://wiki.archlinux.org/index.php/TeX_Live)
-alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+function go_back() {
+	BUFFER="cd .."
+	zle accept-line
+}
 
+bindkey "^B" go_back
