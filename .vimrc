@@ -10,8 +10,11 @@ Plug 'lervag/vimtex'
 " appearance
 Plug 'vim-airline/vim-airline'
 
-" vim-devicons must be final plugin to load
-Plug 'ryanoasis/vim-devicons'
+" fix tmux yanking
+Plug 'roxma/vim-tmux-clipboard'
+
+" solarized color scheme
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -24,12 +27,10 @@ set mouse=a         " enable mouse support
 
 " appearance
 set background=dark
+colorscheme solarized
 
 " indentation options
-set autoindent
-set expandtab
-set shiftwidth=2
-set softtabstop=2
+filetype plugin indent on
 
 " text wrapping
 let &showbreak='>>'         " appears at start of wrapped lines
@@ -39,7 +40,7 @@ set breakindentopt+=sbr     " display showbreak symbol before applying breakinde
 set cpoptions+=n            " make showbreak symbol appear in same column as line numbers
 
 " enable folds
-set fdm=indent
+set fdm=syntax
 
 " set where splits appear
 set splitbelow
@@ -54,24 +55,17 @@ map <Leader>f :FZF<CR>
 
 imap jk <C-[>
 
-" save buffer (use update to reduce number of unnecessary writes)
-"nmap <silent> <Leader>s :update<CR>
+" centre cursor after searches
+nmap n nzz
+nmap N Nzz
 
-" delete buffer
-"nmap <silent> <Leader>w :bdelete<CR>
+nmap H 0
+nmap J G
+nmap K gg
+nmap L $
 
-" quit vim
-"nmap  <silent> <Leader>q :quit<CR>
-
-" moving splits
-nmap <A-S-h> <C-w>H
-nmap <A-S-j> <C-w>J
-nmap <A-S-k> <C-w>K
-nmap <A-S-l> <C-w>L
-
-" move up and down pages
-nnoremap J <PageDown>
-nnoremap K <PageUp>
+" improve backspace
+set backspace=indent,eol,start
 
 " ^<Backspace> deletes a whole word
 imap <C-H> <C-W>
