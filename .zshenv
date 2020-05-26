@@ -1,6 +1,6 @@
 # update path
 typeset -U path
-path=(~/bin ~/.local/bin $path)
+path=($path ~/.local/bin ~/bin)
 
 # set default editors
 export EDITOR=/usr/bin/vi
@@ -25,9 +25,8 @@ if [[ $USER == connor ]]; then
   # python
   export PYTHONPATH=~/lib/python3/packages
 
-  # deal.II
-  export DEAL_II_DIR=/opt/deal.ii-candi/deal.II-v9.1.1
-  source /opt/deal.ii-candi/configuration/enable.sh
+  # Perple_X
+  export PERPLEX_DIR=~/opt/perplex
 fi
 
 if [[ $HOST == hamilton?.hpc.dur.ac.uk ]]; then

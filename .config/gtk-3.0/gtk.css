@@ -1,0 +1,12 @@
+/* ZIM */
+
+/* page editor */
+#zim-pageview text 
+{
+  /* background color */
+  background-color: #FFFFFF; 
+
+  /* foreground text color */
+  color: #000000; 
+}
+@import 'colors.css';
