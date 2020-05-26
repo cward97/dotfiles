@@ -1,17 +1,4 @@
-" My .vimrc file. It contains settings for vim and nvim.
-
-
-" -------------------------------------------------
-" -------------------- PLUGINS --------------------
-" -------------------------------------------------
-
-" install vim-plug if not already there
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
+" vim-plug
 call plug#begin('~/.vim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -26,35 +13,40 @@ Plug 'vim-airline/vim-airline'
 " fix tmux yanking
 Plug 'roxma/vim-tmux-clipboard'
 
-" solarized color scheme
-Plug 'altercation/vim-colors-solarized'
+" session management
+Plug 'tpope/vim-obsession'
+
+" file explorer
+Plug 'scrooloose/nerdtree'
+
+" markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
+" markdown syntax
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
-" ----------------------------------------------
-" -------------------- BASE --------------------
-" ----------------------------------------------
-
+" Base
 " set where to save viminfo file
 set viminfo+=n~/.vim/viminfo
 
 set number          " line numbering
 set mouse=a         " enable mouse support
 
+let mapleader = ','
+
 " appearance
 set background=dark
-colorscheme solarized
 
 " indentation options
 filetype plugin indent on
 
 " text wrapping
 let &showbreak='>>'         " appears at start of wrapped lines
-if has('breakindent') && has('breakindentopt')
-  set breakindent             " make indentation of wrapped lines match line above
-  set breakindentopt+=shift:2 " indent wrapped text relative to first line
-  set breakindentopt+=sbr     " display showbreak symbol before applying breakindent
-endif
+set breakindent             " make indentation of wrapped lines match line above
+set breakindentopt+=shift:2 " indent wrapped text relative to first line
+set breakindentopt+=sbr     " display showbreak symbol before applying breakindent
 set cpoptions+=n            " make showbreak symbol appear in same column as line numbers
 
 " enable folds
@@ -69,7 +61,9 @@ set splitright
 " Alt: splits
 " Leader: equivalent of Ctrl
 " open fuzzy finder
-map <Leader>f :FZF<CR>
+nmap <Leader>f :FZF<CR>
+nmap <Leader>w :up<CR>
+nmap <Leader>q :q<CR>
 
 imap jk <C-[>
 
@@ -77,10 +71,15 @@ imap jk <C-[>
 nmap n nzz
 nmap N Nzz
 
-nmap H 0
-nmap J G
-nmap K gg
-nmap L $
+nmap H 10h
+nmap J 10j
+nmap K 10k
+nmap L 10l
+
+vmap H 0
+vmap J G
+vmap K gg
+vmap L $
 
 " improve backspace
 set backspace=indent,eol,start

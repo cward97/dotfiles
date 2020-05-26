@@ -25,8 +25,11 @@ if [[ $USER == connor ]]; then
   # python
   export PYTHONPATH=~/lib/python3/packages
 
+  # project
+  export PROJECT_DIR=~/Documents/uni/project/code/perplex-aspect
+
   # Perple_X
-  export PERPLEX_DIR=~/opt/perplex
+  export PERPLEX_DIR=$PROJECT_DIR/external/perplex
 fi
 
 if [[ $HOST == hamilton?.hpc.dur.ac.uk ]]; then

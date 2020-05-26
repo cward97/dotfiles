@@ -64,6 +64,7 @@ function go_back() {
 	BUFFER="cd .."
 	zle accept-line
 }
+zle -N go_back
 bindkey "^B" go_back
 
   bindkey "^P" history-beginning-search-backward
