@@ -45,15 +45,24 @@ if [[ $USER != fksc76 ]]; then
 
   #################### ALIASES ####################
 
-  alias ..="cd .."
-
   if [[ -e /usr/bin/nvim ]]; then
     alias vim=nvim
   fi
 
   alias ls="ls -v --color --group-directories-first"
 
-  bindkey "^P" history-beginning-search-backward
-  bindkey "^N" history-beginning-search-forward
+else
+  alias cdd="cd /ddn/data/fksc76"
+  alias python=python3
 fi
+
+# universal stuff
+
+bindkey "^P" history-beginning-search-backward
+bindkey "^N" history-beginning-search-forward
+
+# directory traversal
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 

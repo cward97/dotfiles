@@ -17,6 +17,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
 
+" git integration
+Plug 'tpope/vim-fugitive'
+
 " LateX
 Plug 'lervag/vimtex'
 
@@ -118,3 +121,11 @@ vnoremap < <gv
 
 let g:airline#extensions#tabline#enabled = 1    " enable tab/buffer line  
 
+" ----------------------------------------------
+" -------------------- APPEARANCE --------------------
+" ----------------------------------------------
+
+" change cursor shape for different modes
+" (source: https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes)
+let &t_SI = "\<Esc>[6 q"
+let &t_EI = "\<Esc>[2 q"

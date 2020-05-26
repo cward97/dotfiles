@@ -3,3 +3,5 @@
 # Please adapt and uncomment the following lines:
 	name = Connor Ward
  	email = cward.contrib@fastmail.com
+[push]
+	default = simple
