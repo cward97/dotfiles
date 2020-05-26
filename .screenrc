@@ -1,6 +1,20 @@
+# Track the mouse
 mousetrack on
 
-term xterm-256color
+# Use 256 colors
+# source: https://wiki.archlinux.org/index.php/GNU_Screen#Use_256_colors
+term screen-256color
 
-# hide text editors after closing
+# Hide text editors after closing
+# source: https://wiki.archlinux.org/index.php/GNU_Screen#Fix_for_residual_editor_text
 altscreen on
+
+# Improve the statusbar
+# source: https://wiki.archlinux.org/index.php/GNU_Screen#Informative_statusbar
+hardstatus off
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
+
+# Fix scrolling
+# source: https://wiki.archlinux.org/index.php/GNU_Screen#Use_X_scrolling_mechanism
+termcapinfo xterm* ti@:te@
