@@ -1,23 +1,11 @@
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf.vim'
-
-" LateX
-Plug 'lervag/vimtex'
+" git integration
+Plug 'tpope/vim-fugitive'
 
 " appearance
 Plug 'vim-airline/vim-airline'
-
-" fix tmux yanking
-Plug 'roxma/vim-tmux-clipboard'
-
-" session management
-Plug 'tpope/vim-obsession'
-
-" file explorer
-Plug 'scrooloose/nerdtree'
 
 " markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
@@ -30,6 +18,14 @@ call plug#end()
 " Base
 " set where to save viminfo file
 set viminfo+=n~/.vim/viminfo
+
+" Search down into subfolders
+" source: https://www.youtube.com/watch?v=XA2WjJbmmoM
+set path+=**
+
+" Display all matching files when we tab complete
+" source: https://www.youtube.com/watch?v=XA2WjJbmmoM
+set wildmenu
 
 set number          " line numbering
 set mouse=a         " enable mouse support
@@ -56,30 +52,12 @@ set fdm=syntax
 set splitbelow
 set splitright
 
-" Mappings
-" Ctrl and Mod are largely reserved
-" Alt: splits
-" Leader: equivalent of Ctrl
-" open fuzzy finder
-nmap <Leader>f :FZF<CR>
 nmap <Leader>w :up<CR>
 nmap <Leader>q :q<CR>
-
-imap jk <C-[>
 
 " centre cursor after searches
 nmap n nzz
 nmap N Nzz
-
-nmap H 10h
-nmap J 10j
-nmap K 10k
-nmap L 10l
-
-vmap H 0
-vmap J G
-vmap K gg
-vmap L $
 
 " improve backspace
 set backspace=indent,eol,start
@@ -111,3 +89,11 @@ vnoremap < <gv
 
 let g:airline#extensions#tabline#enabled = 1    " enable tab/buffer line  
 
+" ----------------------------------------------
+" -------------------- APPEARANCE --------------------
+" ----------------------------------------------
+
+" change cursor shape for different modes
+" (source: https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes)
+let &t_SI = "\<Esc>[6 q"
+let &t_EI = "\<Esc>[2 q"

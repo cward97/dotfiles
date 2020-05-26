@@ -43,6 +43,9 @@ if [[ $USER != fksc76 ]]; then
 
   [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
   [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
+else
+  alias cdd="cd /ddn/data/fksc76"
+  alias python=python3
 fi
 
   #################### ALIASES ####################
@@ -56,17 +59,16 @@ alias lsa="ls -a"
 alias lsl="ls -l"
 alias lsal="ls -al"
 
-  if [[ -e /usr/bin/nvim ]]; then
-    alias vim=nvim
-  fi
+if [[ -e /usr/bin/nvim ]]; then
+	alias vim=nvim
+fi
 
-function go_back() {
-	BUFFER="cd .."
-	zle accept-line
-}
-zle -N go_back
-bindkey "^B" go_back
+# universal stuff
+bindkey "^P" history-beginning-search-backward
+bindkey "^N" history-beginning-search-forward
 
-  bindkey "^P" history-beginning-search-backward
-  bindkey "^N" history-beginning-search-forward
+# directory traversal
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
