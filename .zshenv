@@ -1,6 +1,6 @@
-# update path
-typeset -U path
-path=($path ~/.local/bin ~/bin)
+export PATH=$HOME/bin:$HOME/local/bin:$HOME/.local/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
+export MANPATH=$HOME/local/share/man:$MANPATH
 
 # set default editors
 export EDITOR=/usr/bin/vi
@@ -30,6 +30,8 @@ if [[ $USER == connor ]]; then
 fi
 
 if [[ $HOST == hamilton?.hpc.dur.ac.uk ]]; then
+  export DATA=/ddn/data/fksc76
+
   source /etc/profile.d/modules.sh
   module load gcc/8.2.0 \
               cmake/3.6.2 \

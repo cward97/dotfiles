@@ -14,23 +14,20 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf.vim'
+"Plug 'christoomey/vim-tmux-navigator'
+"Plug 'junegunn/fzf.vim'
 
 " git integration
 Plug 'tpope/vim-fugitive'
 
 " LateX
-Plug 'lervag/vimtex'
+"Plug 'lervag/vimtex'
 
 " appearance
 Plug 'vim-airline/vim-airline'
 
 " fix tmux yanking
-Plug 'roxma/vim-tmux-clipboard'
-
-" solarized color scheme
-Plug 'altercation/vim-colors-solarized'
+"Plug 'roxma/vim-tmux-clipboard'
 
 call plug#end()
 
@@ -41,12 +38,16 @@ call plug#end()
 " set where to save viminfo file
 set viminfo+=n~/.vim/viminfo
 
+" Search down into subfolders
+" source: https://www.youtube.com/watch?v=XA2WjJbmmoM
+set path+=**
+
+" Display all matching files when we tab complete
+" source: https://www.youtube.com/watch?v=XA2WjJbmmoM
+set wildmenu
+
 set number          " line numbering
 set mouse=a         " enable mouse support
-
-" appearance
-set background=dark
-colorscheme solarized
 
 " indentation options
 filetype plugin indent on
@@ -74,16 +75,16 @@ set splitright
 " open fuzzy finder
 map <Leader>f :FZF<CR>
 
-imap jk <C-[>
+"imap jk <C-[>
 
 " centre cursor after searches
 nmap n nzz
 nmap N Nzz
 
-nmap H 0
-nmap J G
-nmap K gg
-nmap L $
+"nmap H 0
+"nmap J G
+"nmap K gg
+"nmap L $
 
 " improve backspace
 set backspace=indent,eol,start
