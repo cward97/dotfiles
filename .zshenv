@@ -34,20 +34,12 @@ fi
 
 if [[ $HOST == hamilton?.hpc.dur.ac.uk ]]; then
   export DATA=/ddn/data/fksc76
-
-  source /etc/profile.d/modules.sh
-  module load gcc/8.2.0 \
-              cmake/3.6.2 \
-              lapack/gcc/3.5.0 \
-              zlib/gcc/1.2.7 \
-              sge/current \
-              openmpi/gcc/2.1.1 \
-              gsl/gcc/64/1.15 \
-              python/3.6.8
-
+ 
+  # ASPECT
+  # source: https://philheron.com/aspect-hamilton/
+  module load module-git gcc/4.9.1 cmake/3.6.2 lapack/gcc/3.5.0 zlib/gcc/1.2.7 sge/current openmpi/gcc/2.1.1 gsl/gcc/64/1.15 
   export CC=mpicc; export CXX=mpicxx; export FC=mpif90; export FF=mpif77
 
-  # ASPECT
-  export DEAL_II_DIR=/ddn/data/dgl6jv1/Progs/ASPECT_20181001/deal.ii-candi/tmp/build/deal.II-v9.0.0
-  export PERPLEX_DIR=~/opt/perplex
+  # Perple_X
+  export PERPLEX_DIR=$HOME/opt/perplex
 fi
