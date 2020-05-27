@@ -7,8 +7,10 @@ Plug 'tpope/vim-fugitive'
 " appearance
 Plug 'vim-airline/vim-airline'
 
-" markdown preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+if v:version >= 810 || has('nvim')
+  " markdown preview
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+endif
 
 " markdown syntax
 Plug 'plasticboy/vim-markdown'
