@@ -4,6 +4,9 @@ call plug#begin('~/.vim/plugged')
 " git integration
 Plug 'tpope/vim-fugitive'
 
+" commenting
+Plug 'tpope/vim-commentary'
+
 " appearance
 Plug 'vim-airline/vim-airline'
 
@@ -17,9 +20,14 @@ Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
-" Base
 " set where to save viminfo file
 set viminfo+=n~/.vim/viminfo
+
+" automatically save on buffer changes
+set autowrite
+
+" disable netrw banner
+let g:netrw_banner = 0
 
 " Search down into subfolders
 " source: https://www.youtube.com/watch?v=XA2WjJbmmoM
@@ -30,9 +38,14 @@ set path+=**
 set wildmenu
 
 set number          " line numbering
+set relativenumber  " relative line numbering
 set mouse=a         " enable mouse support
 
 let mapleader = ','
+
+" correct indenting
+set shiftwidth=2
+set softtabstop=2
 
 " appearance
 set background=dark
@@ -54,36 +67,11 @@ set fdm=syntax
 set splitbelow
 set splitright
 
-nmap <Leader>w :up<CR>
-nmap <Leader>q :q<CR>
-
-" centre cursor after searches
-nmap n nzz
-nmap N Nzz
-
 " improve backspace
 set backspace=indent,eol,start
 
 " ^<Backspace> deletes a whole word
 imap <C-H> <C-W>
-
-" --------------- TERMINAL MODE ---------------
-if exists(':tmap')
-    " escape sequence
-    tmap <A-[> <C-\><C-n>
-
-    " switching between split windows
-    tmap <A-h> <C-\><C-n><C-w>h
-    tmap <A-j> <C-\><C-n><C-w>j
-    tmap <A-k> <C-\><C-n><C-w>k
-    tmap <A-l> <C-\><C-n><C-w>l
-endif
-
-" --------------- VISUAL MODE ---------------
-
-" keep visual selection active when indenting
-vnoremap > >gv
-vnoremap < <gv
 
 " plugins
 

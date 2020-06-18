@@ -45,17 +45,6 @@ if [[ $USER != fksc76 ]]; then
   [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 fi
 
-if [[ $HOST == hamilton?.hpc.dur.ac.uk ]]; then
-  alias cdd="cd /ddn/data/fksc76"
-  alias python=python3
-
-  # Start screen on every shell
-  # source: https://wiki.archlinux.org/index.php/GNU_Screen#Start_Screen_on_every_shell
-  if [[ -z "$STY" ]]; then
-      screen -xRR main
-  fi
-fi
-
   #################### ALIASES ####################
 
 # fancy cd with ls

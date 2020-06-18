@@ -31,15 +31,3 @@ if [[ $USER == connor ]]; then
   # Perple_X
   export PERPLEX_DIR=$PROJECT_DIR/external/perplex
 fi
-
-if [[ $HOST == hamilton?.hpc.dur.ac.uk ]]; then
-  export DATA=/ddn/data/fksc76
- 
-  # ASPECT
-  # source: https://philheron.com/aspect-hamilton/
-  module load module-git gcc/4.9.1 cmake/3.6.2 lapack/gcc/3.5.0 zlib/gcc/1.2.7 sge/current openmpi/gcc/2.1.1 gsl/gcc/64/1.15 
-  export CC=mpicc; export CXX=mpicxx; export FC=mpif90; export FF=mpif77
-
-  # Perple_X
-  export PERPLEX_DIR=$HOME/opt/perplex
-fi

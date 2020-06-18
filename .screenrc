@@ -12,15 +12,19 @@ screen 1
 # source: https://wiki.archlinux.org/index.php/GNU_Screen#Use_256_colors
 term screen-256color
 
+# Turn welcome message off
+# source: https://wiki.archlinux.org/index.php/GNU_Screen#Turn_welcome_message_off
+startup_message off
+
 # Hide text editors after closing
 # source: https://wiki.archlinux.org/index.php/GNU_Screen#Fix_for_residual_editor_text
 altscreen on
 
-# Improve the statusbar
+# Improve the statusbar (note, this breaks the statusbar for vim)
 # source: https://wiki.archlinux.org/index.php/GNU_Screen#Informative_statusbar
-hardstatus off
-hardstatus alwayslastline
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
+#hardstatus off
+#hardstatus alwayslastline
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
 
 # Fix scrolling
 # source: https://wiki.archlinux.org/index.php/GNU_Screen#Use_X_scrolling_mechanism
