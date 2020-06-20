@@ -1,6 +1,13 @@
 # .bash_profile
 
-# jump into zsh
-export SHELL=/bin/zsh
-exec /bin/zsh -l
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
 
+# User specific environment and startup programs
+
+export PATH=$HOME/local/bin:$PATH
+
+export EDITOR=vi
+export VISUAL=vim

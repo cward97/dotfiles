@@ -43,9 +43,6 @@ if [[ $USER != fksc76 ]]; then
 
   [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
   [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
-else
-  alias cdd="cd /ddn/data/fksc76"
-  alias python=python3
 fi
 
   #################### ALIASES ####################
