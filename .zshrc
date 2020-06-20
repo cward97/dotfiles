@@ -51,13 +51,7 @@ fi
   #################### ALIASES ####################
 
 # fancy cd with ls
-chpwd() ls
-
-# listing files
-alias ls="ls -v --color --group-directories-first"
-alias lsa="ls -a"
-alias lsl="ls -l"
-alias lsal="ls -al"
+chpwd() ls -v --color --group-directories-first
 
 if [[ -e /usr/bin/nvim ]]; then
 	alias vim=nvim
