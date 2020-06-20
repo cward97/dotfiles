@@ -5,3 +5,5 @@
  	email = cward.contrib@fastmail.com
 [push]
 	default = simple
+[pull]
+	rebase = false
