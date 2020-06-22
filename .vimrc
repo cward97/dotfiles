@@ -10,6 +10,9 @@ Plug 'tpope/vim-commentary'
 " appearance
 Plug 'vim-airline/vim-airline'
 
+" solarized color scheme
+Plug 'altercation/vim-colors-solarized'
+
 if v:version >= 810 || has('nvim')
   " markdown preview
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
@@ -49,6 +52,7 @@ set softtabstop=2
 
 " appearance
 set background=dark
+colorscheme solarized
 
 " indentation options
 filetype plugin indent on
