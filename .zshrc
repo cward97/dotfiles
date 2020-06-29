@@ -45,10 +45,10 @@ if [[ $USER != fksc76 ]]; then
   [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 fi
 
-  #################### ALIASES ####################
+alias ls="ls -v --color --group-directories-first"
 
-# fancy cd with ls
-chpwd() ls -v --color --group-directories-first
+# Execute ls when changing directory.
+chpwd() ls
 
 if [[ -e /usr/bin/nvim ]]; then
 	alias vim=nvim
