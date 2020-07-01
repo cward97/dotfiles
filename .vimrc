@@ -1,6 +1,8 @@
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-sensible'
+
 " git integration
 Plug 'tpope/vim-fugitive'
 
