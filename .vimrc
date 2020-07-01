@@ -56,6 +56,8 @@ set softtabstop=2
 set background=dark
 colorscheme solarized
 
+set autowrite
+
 " indentation options
 filetype plugin indent on
 
