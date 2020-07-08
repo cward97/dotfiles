@@ -1,4 +1,9 @@
+# Prepend items to PATH.
 export PATH=$HOME/bin:$HOME/local/bin:$HOME/.local/bin:$PATH
+
+# Append items to PATH.
+export PATH=$PATH:$(ruby -e 'puts Gem.user_dir')/bin
+
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 export MANPATH=$HOME/local/share/man:$MANPATH
 
@@ -24,10 +29,4 @@ export HISTFILE=~/.zsh_history
 if [[ $USER == connor ]]; then
   # python
   export PYTHONPATH=~/lib/python3/packages
-
-  # project
-  export PROJECT_DIR=~/Documents/uni/project/code/perplex-aspect
-
-  # Perple_X
-  export PERPLEX_DIR=$PROJECT_DIR/external/perplex
 fi
