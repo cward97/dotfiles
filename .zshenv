@@ -1,7 +1,9 @@
-# Prepend items to PATH.
 export PATH=$HOME/bin:$HOME/local/bin:$HOME/.local/bin:$PATH
 
-# Append items to PATH.
+# Add rbenv to PATH.
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+# Add rubygems to PATH.
 export PATH=$PATH:$(ruby -e 'puts Gem.user_dir')/bin
 
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH

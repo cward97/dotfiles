@@ -63,3 +63,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
+# Setup rbenv.
+eval "$(rbenv init -)"
+
