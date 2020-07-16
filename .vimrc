@@ -18,6 +18,12 @@ Plug 'altercation/vim-colors-solarized'
 if v:version >= 810 || has('nvim')
   " markdown preview
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
+  Plug 'OmniSharp/omnisharp-vim'
+  Plug 'w0rp/ale'
+  let g:OmniSharp_server_use_mono = 1
+
+  let g:ale_linters = { 'cs': ['OmniSharp'] }
 endif
 
 " markdown syntax
@@ -49,8 +55,8 @@ set mouse=a         " enable mouse support
 let mapleader = ','
 
 " correct indenting
-set shiftwidth=2
-set softtabstop=2
+" set shiftwidth=2
+" set softtabstop=2
 
 " appearance
 set background=dark
