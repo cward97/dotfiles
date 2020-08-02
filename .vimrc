@@ -20,10 +20,11 @@ if v:version >= 810 || has('nvim')
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
   Plug 'OmniSharp/omnisharp-vim'
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
+" let g:ale_linters = {
+" \ 'cs': ['OmniSharp']
+" \}
   let g:OmniSharp_server_use_mono = 1
-
-  let g:ale_linters = { 'cs': ['OmniSharp'] }
 endif
 
 " markdown syntax
