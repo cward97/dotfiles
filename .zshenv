@@ -30,5 +30,5 @@ export HISTFILE=~/.zsh_history
 
 if [[ $USER == connor ]]; then
   # python
-  export PYTHONPATH=~/lib/python3/packages
+  export PYTHONPATH=~/local/lib/python3/packages
 fi
