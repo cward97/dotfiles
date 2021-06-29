@@ -1,0 +1,14 @@
+#! /bin/bash
+
+if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
+  echo "ERROR: Script must be sourced to work correctly"
+  exit 1
+fi
+
+# Source Firedrake
+. firedrake-activate
+
+# Set PYTHONPATH to subdirectories of the current directory so the correct
+# modules are imported.
+export PYTHONPATH="$PWD/firedrake:$PWD/PyOP2:$PWD/petsc"
+

@@ -1,0 +1,17 @@
+#! /bin/bash
+
+OPT=$1
+
+if [ "$OPT" = "me" ]; then
+    git config user.name "Connor Ward"
+    git config user.email "cward.github@nospammail.net"
+elif [ "$OPT" = "work" ]; then
+    git config user.name "Connor Ward"
+    git config user.email "c.ward20@imperial.ac.uk"
+elif [ "$OPT" = "xr" ]; then
+    git config user.name "Connor"
+    git config user.email "connorw.xr@protonmail.com"
+else
+    echo "Please provide one of {me, work, xr}"
+    exit 1
+fi
