@@ -10,19 +10,23 @@ endif
 " Initialise vim-plug
 call plug#begin('~/.vim/plugged')
 
+" Sane defaults
 Plug 'tpope/vim-sensible'
 
-" git integration
+" Automatically adjust 'shiftwidth' and 'expandtab'
+Plug 'tpope/vim-sleuth'
+
+" Git integration
 Plug 'tpope/vim-fugitive'
 
-" commenting
+" Commenting support
 Plug 'tpope/vim-commentary'
+
+" Seamless navigation between vim and tmux
+Plug 'christoomey/vim-tmux-navigator'
 
 " appearance
 Plug 'vim-airline/vim-airline'
-
-" solarized color scheme
-" Plug 'altercation/vim-colors-solarized'
 
 if v:version >= 810 || has('nvim')
   " markdown preview
@@ -49,6 +53,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 call plug#end()
+
+source $HOME/.vim/mappings.vim
 
 " automatically save on buffer changes
 set autowrite
@@ -95,8 +101,6 @@ set splitright
 " improve backspace
 set backspace=indent,eol,start
 
-" ^<Backspace> deletes a whole word
-imap <C-H> <C-W>
 
 " plugins
 
